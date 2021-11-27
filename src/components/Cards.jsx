@@ -6,9 +6,14 @@ import React, { useEffect, useState } from "react";
 const Cards = () => {
   const [data, setData] = useState(null);
   const [isRefresh, setIsRefresh] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const refresh = () => {
-    setIsRefresh(!isRefresh);
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsRefresh(!isRefresh);
+    }, 2000);
   };
   useEffect(() => {
     fetch("http://localhost:8080/notes")
@@ -33,9 +38,15 @@ const Cards = () => {
       <div className="title">
         {" "}
         Notes{" "}
-        <button className="btn-refresh">
-          <i onClick={refresh} className="fa fa-refresh" aria-hidden="true" />
-        </button>
+        {isLoading ? (
+          <div className="spinner-grow text-primary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        ) : (
+          <button className="btn-refresh">
+            <i onClick={refresh} className="fa fa-refresh" aria-hidden="true" />
+          </button>
+        )}
       </div>
       <div className="container-cards">
         {!data?.length ? (
