@@ -1,4 +1,4 @@
-CRUD
+CRUD [Demo](https://alexplus77.github.io/crud-react/)
 ===
 
 Вам необходимо реализовать базовый CRUD (без обновления) при работе с HTTP.
