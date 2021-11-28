@@ -6,5 +6,4 @@ const App = () => (
     <PageCards />
   </div>
 );
-
 export default App;
