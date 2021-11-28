@@ -8,6 +8,14 @@ const Cards = () => {
   const [isRefresh, setIsRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const response = () => {
+    fetch("http://localhost:8080/notes")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      });
+  };
   const refresh = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -16,12 +24,7 @@ const Cards = () => {
     }, 2000);
   };
   useEffect(() => {
-    fetch("http://localhost:8080/notes")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
+    response();
   }, [isRefresh]);
 
   const handleRemove = (id) => {

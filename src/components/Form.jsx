@@ -3,8 +3,8 @@ import "App.css";
 
 const Form = ({ refresh }) => {
   const [value, setValue] = useState("");
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const handleChange = ({ target: { value } }) => {
+    setValue(value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
