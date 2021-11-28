@@ -32,7 +32,7 @@ const Cards = () => {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(() => {
         refresh();
       });
   };
