@@ -1,17 +1,17 @@
-import "../App.css";
-import Card from "../components/Card";
-import Form from "../components/Form";
-import Loading from "../components/Loading";
+import "App.css";
+import { Card, Form, Loading } from "index";
 import React, { useEffect, useState } from "react";
 
-const Page_Cards = () => {
+const url = "http://localhost:8080/notes/";
+
+const PageCards = () => {
   const [value, setValue] = useState("");
   const [data, setData] = useState(null);
   const [isRefresh, setIsRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const response = () => {
-    fetch("http://localhost:8080/notes")
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -22,7 +22,7 @@ const Page_Cards = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8080/notes", {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -45,7 +45,7 @@ const Page_Cards = () => {
   }, [isRefresh]);
 
   const handleRemove = (id) => {
-    fetch(`http://localhost:8080/notes/${id}`, {
+    fetch(url + id, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -89,4 +89,4 @@ const Page_Cards = () => {
     </div>
   );
 };
-export default Page_Cards;
+export default PageCards;

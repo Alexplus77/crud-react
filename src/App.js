@@ -1,12 +1,10 @@
 import "App.css";
-import Page_Cards from "./pages/Page_Cards";
+import { PageCards } from "index";
 
-function App() {
-  return (
-    <div className="container">
-      <Page_Cards />
-    </div>
-  );
-}
+const App = () => (
+  <div className="container">
+    <PageCards />
+  </div>
+);
 
 export default App;
