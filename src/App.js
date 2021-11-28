@@ -1,10 +1,10 @@
 import "App.css";
-import Cards from "./pages/Cards";
+import Page_Cards from "./pages/Page_Cards";
 
 function App() {
   return (
     <div className="container">
-      <Cards />
+      <Page_Cards />
     </div>
   );
 }

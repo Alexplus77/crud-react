@@ -4,7 +4,7 @@ import Form from "../components/Form";
 import Loading from "../components/Loading";
 import React, { useEffect, useState } from "react";
 
-const Cards = () => {
+const Page_Cards = () => {
   const [value, setValue] = useState("");
   const [data, setData] = useState(null);
   const [isRefresh, setIsRefresh] = useState(false);
@@ -89,4 +89,4 @@ const Cards = () => {
     </div>
   );
 };
-export default Cards;
+export default Page_Cards;
