@@ -81,7 +81,11 @@ const Cards = () => {
         )}
       </div>
       <i>New Note</i>
-      <Form handleSubmit={handleSubmit} handleChange={handleChange} value />
+      <Form
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        value={value}
+      />
     </div>
   );
 };
