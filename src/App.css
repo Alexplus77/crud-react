@@ -2,6 +2,8 @@
 *{
     font-family: 'Lato', sans-serif;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 .fa-refresh{
 color: #11f711;
@@ -30,13 +32,14 @@ border: none;
 }
 .form{
     border: black 1px solid;
-    width: 460px;}
+    width: 60%;}
 
 textarea{
     border:none;
-    width: 400px;
+    width: 90%;
    min-height: 100px;
     box-sizing: border-box;
+    padding: 5px;
 }
 .container-cards{
     display: grid;
@@ -58,6 +61,7 @@ textarea:focus{
 font-size: 30px;
     padding-top: 10px;
     padding-left: 10px;
+
 }
 .btn-refresh{
     display: grid;
@@ -82,15 +86,16 @@ font-size: 30px;
     border: black 1px solid;
     grid-template-rows:auto;
     overflow: auto;
-    width: 800px;
+    width: 60%;
     padding: 10px;
   }
 
 .card{
     display: grid;
     border: black 1px solid;
+
     padding: 5px;
-    width: 300px;
+    width: 80%;
     height: max-content;
 }
 .message{
@@ -98,10 +103,37 @@ font-size: 30px;
     justify-self: right;
 }
 
-@media screen and (max-width: 964px){
+@media screen and (max-width: 380px){
+.cards{
+   font-size: 14px;
+}
+}
+
+
+@media screen and (max-width: 1028px){
 .container-cards{
     grid-template-columns: 1fr;
 }
+    .message{
+        justify-self: center;
+    }
+    .card{
+width: 70%;
+    }
+    .form{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 797px){
+    .card{
+        width: 100%;
+    }
+    .form{
+        width: 100%;
+    }
+    .container-cards{
+        height: 50vh;
+    }
 }
 
 
