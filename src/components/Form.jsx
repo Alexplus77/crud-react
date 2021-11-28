@@ -1,23 +1,6 @@
-import React, { useState } from "react";
 import "App.css";
 
-const Form = ({ refresh }) => {
-  const [value, setValue] = useState("");
-  const handleChange = ({ target: { value } }) => {
-    value.trim() && setValue(value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:8080/notes", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ content: value }),
-    }).then((response) => response.json());
-    setValue("");
-    refresh();
-  };
+const Form = ({ handleSubmit, handleChange, value }) => {
   return (
     <form onSubmit={handleSubmit} className="form">
       <textarea value={value} onChange={handleChange} required={true} />

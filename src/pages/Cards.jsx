@@ -1,9 +1,11 @@
-import "App.css";
-import Card from "./Card";
-import Form from "./Form";
+import "../App.css";
+import Card from "../components/Card";
+import Form from "../components/Form";
+import Loading from "../components/Loading";
 import React, { useEffect, useState } from "react";
 
 const Cards = () => {
+  const [value, setValue] = useState("");
   const [data, setData] = useState(null);
   const [isRefresh, setIsRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +16,21 @@ const Cards = () => {
       .then((data) => {
         setData(data);
       });
+  };
+  const handleChange = ({ target: { value } }) => {
+    value.trim() && setValue(value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:8080/notes", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ content: value }),
+    }).then((response) => response.json());
+    setValue("");
+    refresh();
   };
 
   const refresh = () => {
@@ -42,9 +59,7 @@ const Cards = () => {
         {" "}
         Notes{" "}
         {isLoading ? (
-          <div className="spinner-grow text-primary" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
+          <Loading />
         ) : (
           <button className="btn-refresh">
             <i onClick={refresh} className="fa fa-refresh" aria-hidden="true" />
@@ -66,7 +81,7 @@ const Cards = () => {
         )}
       </div>
       <i>New Note</i>
-      <Form refresh={refresh} />
+      <Form handleSubmit={handleSubmit} handleChange={handleChange} value />
     </div>
   );
 };
