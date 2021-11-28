@@ -4,7 +4,7 @@ import "App.css";
 const Form = ({ refresh }) => {
   const [value, setValue] = useState("");
   const handleChange = ({ target: { value } }) => {
-    setValue(value);
+    value.trim() && setValue(value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const Form = ({ refresh }) => {
   };
   return (
     <form onSubmit={handleSubmit} className="form">
-      <textarea value={value} onChange={handleChange} />
+      <textarea value={value} onChange={handleChange} required={true} />
       <button className="btn-send" onSubmit={handleSubmit}>
         {" "}
         <i className="fa fa-space-shuttle" aria-hidden="true" />
