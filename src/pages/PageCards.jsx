@@ -1,5 +1,5 @@
 import "App.css";
-import { Card, Form, Loading } from "index";
+import { Card, Form, Loading } from "../components/index";
 import React, { useEffect, useState } from "react";
 
 const url = "http://localhost:8080/notes/";
