@@ -10,16 +10,19 @@ const PageCards = () => {
   const [isRefresh, setIsRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const response = () => {
+  const fetchData = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-      });
+      })
+      .catch((e) => console.log(e));
   };
   const handleChange = ({ target: { value } }) => {
     value.trim() && setValue(value);
   };
+  console.log(value);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(url, {
@@ -28,7 +31,9 @@ const PageCards = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify({ content: value }),
-    }).then((response) => response.json());
+    })
+      .then((response) => response.json())
+      .catch((e) => console.log(e));
     setValue("");
     refresh();
   };
@@ -41,7 +46,7 @@ const PageCards = () => {
     }, 2000);
   };
   useEffect(() => {
-    response();
+    fetchData();
   }, [isRefresh]);
 
   const handleRemove = (id) => {
@@ -51,7 +56,8 @@ const PageCards = () => {
       .then((response) => response.json())
       .then(() => {
         refresh();
-      });
+      })
+      .catch((e) => console.log(e));
   };
   return (
     <div className="cards">
