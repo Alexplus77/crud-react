@@ -23,7 +23,7 @@ color: #11f711;
     color: #913030;
 }
 .fa-space-shuttle{
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .btn-send{
@@ -31,6 +31,8 @@ border: none;
     background-color: white;
 }
 .form{
+    display: grid;
+    grid-auto-flow: column;
     border: black 1px solid;
     width: 60%;}
 
@@ -93,7 +95,6 @@ font-size: 30px;
 .card{
     display: grid;
     border: black 1px solid;
-
     padding: 5px;
     width: 80%;
     height: max-content;

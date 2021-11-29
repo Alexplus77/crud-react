@@ -21,7 +21,6 @@ const PageCards = () => {
   const handleChange = ({ target: { value } }) => {
     value.trim() && setValue(value);
   };
-  console.log(value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
