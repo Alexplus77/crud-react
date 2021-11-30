@@ -1,5 +1,5 @@
 import "App.css";
-import { Card, Form, Loading } from "../components";
+import { Card, Form, Loading } from "components";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 const url = "http://localhost:8080/notes/";
@@ -51,7 +51,6 @@ const PageCards = () => {
       .then(() => {
         refresh();
       })
-
       .catch((e) => console.log(e));
   };
   return (
