@@ -20,15 +20,16 @@ const PageCards = () => {
       .catch((e) => console.log(e));
   };
   const handleChange = ({ target: { value } }) => {
-    [...value][0] !== " " && setValue(value);
+    setValue(value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(url, { content: value })
-      .then((response) => response)
-      .catch((e) => console.log(e));
+    value.trim().length &&
+      axios
+        .post(url, { content: value })
+        .then((response) => response)
+        .catch((e) => console.log(e));
     setValue("");
     refresh();
   };
