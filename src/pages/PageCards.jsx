@@ -1,7 +1,7 @@
 import "App.css";
 import { Card, Form, Loading } from "../components";
 import React, { useEffect, useState } from "react";
-
+import axios from "axios";
 const url = "http://localhost:8080/notes/";
 
 const PageCards = () => {
@@ -11,9 +11,10 @@ const PageCards = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
+    axios
+      .get(url)
+      .then((res) => {
+        const data = res.data;
         setData(data);
       })
       .catch((e) => console.log(e));
@@ -24,14 +25,9 @@ const PageCards = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ content: value }),
-    })
-      .then((response) => response.json())
+    axios
+      .post(url, { content: value })
+      .then((response) => response)
       .catch((e) => console.log(e));
     setValue("");
     refresh();
@@ -49,13 +45,12 @@ const PageCards = () => {
   }, [isRefresh]);
 
   const handleRemove = (id) => {
-    fetch(url + id, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
+    axios
+      .delete(url + id)
       .then(() => {
         refresh();
       })
+
       .catch((e) => console.log(e));
   };
   return (
