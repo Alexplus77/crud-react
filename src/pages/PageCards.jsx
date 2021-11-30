@@ -20,7 +20,7 @@ const PageCards = () => {
       .catch((e) => console.log(e));
   };
   const handleChange = ({ target: { value } }) => {
-    value.trim() && setValue(value);
+    value.trim().length && setValue(value);
   };
 
   const handleSubmit = (e) => {
