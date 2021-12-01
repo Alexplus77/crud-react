@@ -1,5 +1,5 @@
 import "App.css";
-import { PageCards } from "./pages/PageCards";
+import { PageCards } from "pages/PageCards";
 
 const App = () => (
   <div className="container">
