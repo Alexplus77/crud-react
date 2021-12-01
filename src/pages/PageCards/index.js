@@ -1,2 +1,1 @@
-import PageCards from "./PageCards";
-export { PageCards };
+export { PageCards } from "./PageCards";

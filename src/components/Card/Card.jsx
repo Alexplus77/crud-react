@@ -11,4 +11,4 @@ const Card = ({ content, id, handleRemove }) => (
   </div>
 );
 
-export default Card;
+export { Card };

@@ -4,4 +4,4 @@ const Loading = () => (
   </div>
 );
 
-export default Loading;
+export { Loading };

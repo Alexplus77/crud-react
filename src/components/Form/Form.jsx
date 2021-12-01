@@ -10,4 +10,4 @@ const Form = ({ handleSubmit, handleChange, value }) => (
   </form>
 );
 
-export default Form;
+export { Form };

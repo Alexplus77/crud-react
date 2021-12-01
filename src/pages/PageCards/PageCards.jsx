@@ -91,4 +91,4 @@ const PageCards = () => {
     </div>
   );
 };
-export default PageCards;
+export { PageCards };
