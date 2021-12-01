@@ -1,4 +1,4 @@
-import "App.css";
+import "../../App.css";
 
 const Form = ({ handleSubmit, handleChange, value }) => (
   <form onSubmit={handleSubmit} className="form">
